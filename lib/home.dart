@@ -6,17 +6,45 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      body: Stack(
         children: [
-          const SizedBox(height: 20),
-          StartButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/game');
-            },
-            text: 'START',
+          // Background Image
+          Opacity(
+            opacity: 0.4,
+            child: Image.asset(
+              'assets/images/Pixel-Art-Carrot.png',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+          ),
+
+          // Foreground Content
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'This is a Game',
+                    style: TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'PressStart2P'),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 50),
+                  StartButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/game');
+                    },
+                    text: 'START',
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -26,10 +54,6 @@ class Home extends StatelessWidget {
 
 void main() {
   runApp(const MaterialApp(
-    home: Scaffold(
-      body: Center(
-        child: Home(),
-      ),
-    ),
+    home: Home(),
   ));
 }
