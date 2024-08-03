@@ -28,7 +28,7 @@ class Game extends StatelessWidget {
                 ],
                 components: [GameController()],
                 player: MyPlayer(
-                  position: Vector2(tileSize * 7, tileSize * 6),
+                  position: Vector2(tileSize * 13, tileSize * 10),
                 ),
                 cameraConfig: CameraConfig(
                   zoom: getZoomFromMaxVisibleTile(context, tileSize, 20),

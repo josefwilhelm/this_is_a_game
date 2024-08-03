@@ -84,13 +84,6 @@ class Burger extends SimpleEnemy
   @override
   void removeLife(double life) {
     final effect = SequenceEffect([
-      // ScaleEffect.by(
-      //   Vector2.all(1.5),
-      //   EffectController(
-      //     duration: 0.2,
-      //     alternate: true,
-      //   ),
-      // ),
       ColorEffect(Colors.red, EffectController(duration: 0.1, alternate: true)),
     ]);
 

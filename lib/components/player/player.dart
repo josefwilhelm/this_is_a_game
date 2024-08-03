@@ -1,5 +1,5 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:flutter/material.dart';
+import 'package:flame/effects.dart';
 import 'package:this_is_a_game/constants.dart';
 import 'package:this_is_a_game/stat_controller.dart';
 
@@ -36,9 +36,19 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
     initialLife(100);
   }
 
+  late SpriteAnimation runLeft;
+
   @override
-  void onMount() {
+  Future<void> onMount() async {
     // TODO: implement onMount
+    Image imagePlayerRunLeft = await Flame.images.load('veg.png');
+    SpriteAnimation runLeft = imagePlayerRunLeft.getAnimation(
+      position: Vector2(0, 0),
+      size: Vector2(20, 20),
+      amount: 5,
+      stepTime: 0.1,
+      loop: true,
+    );
     _statController = StatController();
     super.onMount();
   }
@@ -59,15 +69,18 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
 
   @override
   void removeLife(double life) {
-    showDamage(
-      -life,
-      gravity: 1,
-      config: TextStyle(
-        fontSize: width / 5,
-        color: Colors.red,
-      ),
-    );
+    // showDamage(
+    //   -life,
+    //   gravity: 1,
+    //   config: TextStyle(
+    //     fontSize: width / 5,
+    //     color: Color(0xFFFF0000),
+    //   ),
+    // );
     _statController.life -= life;
+
+    add(ColorEffect(
+        Color(0xFFFF0000), EffectController(duration: 0.15, alternate: true)));
 
     super.removeLife(life);
   }
@@ -102,7 +115,7 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
   }
 
   @override
-  void update(double dt) {
+  Future<void> update(double dt) async {
     if (checkInterval('spawn weapon', 700, dt)) {
       simpleAttackRangeByAngle(
         attackFrom: AttackOriginEnum.PLAYER_OR_ALLY,
