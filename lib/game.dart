@@ -16,14 +16,6 @@ class Game extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            Consumer<StatController>(builder: (context, value, child) {
-              return Column(
-                children: [
-                  Text(value.life.toString()),
-                  Text(value.score.toString()),
-                ],
-              );
-            }),
             Hud(),
             Expanded(
               child: BonfireWidget(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:this_is_a_game/start_button.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -13,39 +14,11 @@ class Home extends StatelessWidget {
           const SizedBox(height: 20),
           StartButton(
             onPressed: () {
-              // TODO
               Navigator.pushNamed(context, '/game');
             },
+            text: 'START',
           ),
         ],
-      ),
-    );
-  }
-}
-
-class StartButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const StartButton({Key? key, required this.onPressed}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue, // Button background color
-        border: Border.all(color: Colors.black, width: 3),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: TextButton(
-        onPressed: onPressed,
-        child: const Text(
-          'START',
-          style: TextStyle(
-            fontSize: 20,
-            fontFamily: 'PressStart2P',
-            color: Colors.white,
-          ),
-        ),
       ),
     );
   }
