@@ -89,6 +89,7 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
   void onDie() {
     // TODO: implement onDie
     _statController.life = 0.0;
+    _statController.updateHighScore();
 
     gameRef.add(
       GameDecoration.withSprite(

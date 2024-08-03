@@ -1,9 +1,11 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:this_is_a_game/constants.dart';
 import 'package:this_is_a_game/game.dart';
 import 'package:this_is_a_game/home.dart';
+import 'package:this_is_a_game/stat_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,20 +22,23 @@ class BonfireExamplesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        '/': (context) => const Home(),
-        '/game': (context) => Game(),
-      },
-      theme: ThemeData(
-        fontFamily: 'PressStart2P',
-        primaryColor: Colors.purple,
-        colorScheme: const ColorScheme.dark().copyWith(
-          primary: primary,
+    return ChangeNotifierProvider(
+      create: (context) => StatController(),
+      child: MaterialApp(
+        routes: {
+          '/': (context) => const Home(),
+          '/game': (context) => Game(),
+        },
+        theme: ThemeData(
+          fontFamily: 'PressStart2P',
+          primaryColor: Colors.purple,
+          colorScheme: const ColorScheme.dark().copyWith(
+            primary: primary,
+          ),
+          scaffoldBackgroundColor: background,
         ),
-        scaffoldBackgroundColor: background,
+        //home: Game(),
       ),
-      //home: Game(),
     );
   }
 }

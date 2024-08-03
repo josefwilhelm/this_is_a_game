@@ -23,7 +23,10 @@ class Game extends StatelessWidget {
                   WorldMapReader.fromAsset('simple_map.tmj'),
                 ),
                 playerControllers: [
-                  Joystick(directional: JoystickDirectional()),
+                  Joystick(
+                      directional: JoystickDirectional(
+                          alignment: Alignment.bottomRight,
+                          margin: EdgeInsets.only(bottom: 50, right: 30))),
                   Keyboard(),
                 ],
                 components: [GameController()],

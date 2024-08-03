@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:this_is_a_game/start_button.dart';
+import 'package:this_is_a_game/stat_controller.dart';
 
 class GameOverWidget extends StatelessWidget {
   const GameOverWidget({
@@ -8,6 +10,7 @@ class GameOverWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final stats = context.watch<StatController>();
     return Container(
       color: Colors.black.withOpacity(0.5),
       width: double.infinity,
@@ -15,8 +18,21 @@ class GameOverWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          if (stats.score == stats.highScore) ...{
+            Text(
+              'NEW HIGHSCORE!',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          },
+          const SizedBox(height: 12),
           const Text(
             'GAME OVER',
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
               fontSize: 48,
