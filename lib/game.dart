@@ -17,7 +17,7 @@ class Game extends StatelessWidget {
           Expanded(
             child: BonfireWidget(
               map: WorldMapByTiled(
-                WorldMapReader.fromAsset('assets/tiles/simple_map.tmj'),
+                WorldMapReader.fromAsset('simple_map.tmj'),
               ),
               playerControllers: [
                 Joystick(directional: JoystickDirectional()),

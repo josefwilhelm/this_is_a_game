@@ -23,7 +23,7 @@ enum PersonAttackEnum {
 class PersonSpritesheet {
   final String path;
 
-  PersonSpritesheet({this.path = 'assets/images/human.png'});
+  PersonSpritesheet({this.path = 'human.png'});
 
   SimpleDirectionAnimation simpleAnimation() {
     return SimpleDirectionAnimation(
