@@ -4,12 +4,7 @@ import 'package:this_is_a_game/constants.dart';
 import 'package:this_is_a_game/stat_controller.dart';
 
 class Burger extends SimpleEnemy
-    with
-        BlockMovementCollision,
-        PlayerControllerListener,
-        MovementByJoystick,
-        RandomMovement,
-        UseLifeBar {
+    with BlockMovementCollision, PlayerControllerListener {
   double attack = 20;
   bool enableBehaviors = true;
   final double experience = 20;
@@ -38,15 +33,10 @@ class Burger extends SimpleEnemy
           // animation: PersonSpritesheet(path: 'burger_spritesheet.png')
           //     .simpleAnimation(),
           position: position,
-          size: Vector2.all(16),
+          size: Vector2.all(tileSize * 1.5),
           speed: burgerSpeed,
           life: burgerLife,
-        ) {
-    setupLifeBar(
-        borderRadius: BorderRadius.circular(2),
-        borderWidth: 2,
-        size: Vector2(16, 4));
-  }
+        ) {}
 
   @override
   void onMount() {

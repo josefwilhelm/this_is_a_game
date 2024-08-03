@@ -82,14 +82,14 @@ class Hud extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Text(
-              'Level: ${stats.currentLevel}',
+              'Level: ${stats.currentLevel.toInt()}',
               textAlign: TextAlign.right,
             ),
           ),
           Align(
             alignment: Alignment.centerRight,
             child: Text(
-              'Score: ${stats.score}',
+              'Score: ${stats.score.toInt()}',
               style: TextStyle(fontSize: 15),
             ),
           ),

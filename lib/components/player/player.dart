@@ -60,10 +60,11 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
   @override
   void removeLife(double life) {
     showDamage(
-      life,
+      -life,
+      gravity: 1,
       config: TextStyle(
-        fontSize: width / 3,
-        color: Colors.white,
+        fontSize: width / 5,
+        color: Colors.red,
       ),
     );
     _statController.life -= life;
