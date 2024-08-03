@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:this_is_a_game/constants.dart';
@@ -5,13 +7,13 @@ import 'package:this_is_a_game/stat_controller.dart';
 
 class Burger extends SimpleEnemy
     with BlockMovementCollision, PlayerControllerListener {
-  double attack = 20;
+  double attack = 10;
   bool enableBehaviors = true;
   final double experience = 20;
 
   late StatController _statController;
 
-  Burger(Vector2 position)
+  Burger(Vector2 position, [double life = burgerLife])
       : super(
           animation: SimpleDirectionAnimation(
               idleRight: SpriteAnimation.load(
@@ -35,7 +37,7 @@ class Burger extends SimpleEnemy
           position: position,
           size: Vector2.all(tileSize * 1.5),
           speed: burgerSpeed,
-          life: burgerLife,
+          life: life,
         ) {}
 
   @override
@@ -64,7 +66,7 @@ class Burger extends SimpleEnemy
     if (gameRef.player != null && gameRef.player?.isDead == true) return;
     simpleAttackMelee(
       size: Vector2.all(width),
-      damage: damage / 2,
+      damage: damage + (pow(1.30, _statController.currentLevel - 1)),
       interval: 400,
       sizePush: 2,
       // animationRight: CommonSpriteSheet.blackAttackEffectRight,

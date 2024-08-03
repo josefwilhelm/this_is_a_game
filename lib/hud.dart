@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:this_is_a_game/stat_controller.dart';
@@ -94,6 +96,20 @@ class Hud extends StatelessWidget {
               style: TextStyle(fontSize: 15),
             ),
           ),
+          // Align(
+          //   alignment: Alignment.centerRight,
+          //   child: Text(
+          //     'Enemy strength: ${(pow(1.30, stats.currentLevel - 1)).toStringAsFixed(2)}',
+          //     style: TextStyle(fontSize: 15),
+          //   ),
+          // ),
+          // Align(
+          //   alignment: Alignment.centerRight,
+          //   child: Text(
+          //     'Enemy damage: ${(10 * (pow(1.30, stats.currentLevel - 1))).toStringAsFixed(2)}',
+          //     style: TextStyle(fontSize: 15),
+          //   ),
+          // ),
         ],
       ),
     );
