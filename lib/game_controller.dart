@@ -19,7 +19,9 @@ class GameController extends GameComponent {
 
   void _addEnemyInWorld() {
     double x = tileSize * (4 + Random().nextInt(25));
-    double y = tileSize * (5 + Random().nextInt(3));
+    double y = Random().nextBool()
+        ? tileSize * (4 + Random().nextInt(25))
+        : tileSize * (5 + Random().nextInt(3));
 
     final goblin = Burger(Vector2(x, y));
 

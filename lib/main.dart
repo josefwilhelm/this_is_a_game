@@ -8,7 +8,7 @@ import 'package:this_is_a_game/home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (!kIsWeb) {
-    await Flame.device.setLandscape();
+    await Flame.device.setPortrait();
     await Flame.device.fullScreen();
   }
 
