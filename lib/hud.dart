@@ -58,7 +58,8 @@ class Hud extends StatelessWidget {
                         bottomLeft: Radius.circular(20.0),
                       ),
                       child: LinearProgressIndicator(
-                        value: 0.3,
+                        value:
+                            stats.experience / stats.experienceForNextLevel(),
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
                         backgroundColor: Color.fromARGB(120, 76, 175, 79),
                         minHeight: 24, //
@@ -81,7 +82,14 @@ class Hud extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Text(
-              stats.score.toString(),
+              'Level: ${stats.currentLevel}',
+              textAlign: TextAlign.right,
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              'Score: ${stats.score}',
               style: TextStyle(fontSize: 15),
             ),
           ),

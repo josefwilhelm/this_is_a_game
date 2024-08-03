@@ -12,6 +12,7 @@ class Burger extends SimpleEnemy
         UseLifeBar {
   double attack = 20;
   bool enableBehaviors = true;
+  final double experience = 20;
 
   late StatController _statController;
 
@@ -85,6 +86,7 @@ class Burger extends SimpleEnemy
     super.onDie();
 
     _statController.score += 1;
+    _statController.addExperience(experience);
 
     removeFromParent();
   }
