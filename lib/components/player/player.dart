@@ -103,9 +103,10 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
 
   @override
   void update(double dt) {
-    if (checkInterval('spawn weapon', 500, dt)) {
+    if (checkInterval('spawn weapon', 700, dt)) {
       simpleAttackRangeByAngle(
         attackFrom: AttackOriginEnum.PLAYER_OR_ALLY,
+        marginFromOrigin: 0,
         animation: SpriteAnimation.load(
           "fireball_right.png",
           SpriteAnimationData.sequenced(
@@ -117,15 +118,15 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
         animationDestroy: SpriteAnimation.load(
           "explosion_fire.png",
           SpriteAnimationData.sequenced(
-            amount: 6,
-            stepTime: 0.1,
-            textureSize: Vector2(32, 32),
+            amount: 1,
+            stepTime: 0.2,
+            textureSize: Vector2(23, 23),
           ),
         ),
         angle: radAngleRangeAttack,
         size: Vector2.all(14),
         damage: 60,
-        speed: 5,
+        speed: 20,
         collision: RectangleHitbox(
           size: Vector2(width / 3, width / 3),
           position: Vector2(width * 0.1, 0),
