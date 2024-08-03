@@ -19,8 +19,14 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 flutter:
+  uses-material-design: true
 
   assets:
+    - assets/fonts/
     - assets/
     - assets/images/
-    - assets/tiles/
+
+  fonts:
+    - family: PressStart2P
+      fonts:
+        - asset: assets/fonts/PressStart2P-Regular.ttf

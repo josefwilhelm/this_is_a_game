@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:this_is_a_game/components/player/player.dart';
 import 'package:this_is_a_game/constants.dart';
 import 'package:this_is_a_game/game_controller.dart';
+import 'package:this_is_a_game/game_over_widget.dart';
 import 'package:this_is_a_game/hud.dart';
 import 'package:this_is_a_game/stat_controller.dart';
 
@@ -41,6 +42,11 @@ class Game extends StatelessWidget {
                   zoom: getZoomFromMaxVisibleTile(context, tileSize, 20),
                 ),
                 backgroundColor: Color.fromARGB(255, 49, 49, 49),
+                overlayBuilderMap: {
+                  'gameOver': (_, game) {
+                    return GameOverWidget();
+                  }
+                },
               ),
             ),
           ],

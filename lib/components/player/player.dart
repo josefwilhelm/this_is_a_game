@@ -87,6 +87,8 @@ class MyPlayer extends SimplePlayer with BlockMovementCollision {
     removeFromParent();
     gameRef.stopScene();
 
+    gameRef.overlays.add('gameOver');
+
     super.onDie();
   }
 
