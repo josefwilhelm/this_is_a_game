@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:this_is_a_game/stat_controller.dart';
+import 'package:pixelarticons/pixelarticons.dart';
 
 class Hud extends StatelessWidget {
   const Hud({super.key});
@@ -25,9 +26,9 @@ class Hud extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20.0),
+                        topLeft: Radius.circular(10.0),
                         topRight: Radius.circular(10.0),
-                        bottomRight: Radius.circular(20.0),
+                        bottomRight: Radius.circular(10.0),
                         bottomLeft: Radius.circular(10.0),
                       ),
                       child: LinearProgressIndicator(
@@ -39,8 +40,8 @@ class Hud extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      left: 6,
-                      child: Icon(Icons.favorite, color: Colors.white),
+                      left: 10,
+                      child: Icon(Pixel.heart, color: Colors.white, fill: 1.0),
                     ),
                   ],
                 ),
@@ -53,9 +54,9 @@ class Hud extends StatelessWidget {
                     ClipRRect(
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10.0),
-                        topRight: Radius.circular(20.0),
+                        topRight: Radius.circular(10.0),
                         bottomRight: Radius.circular(10.0),
-                        bottomLeft: Radius.circular(20.0),
+                        bottomLeft: Radius.circular(10.0),
                       ),
                       child: LinearProgressIndicator(
                         value:
@@ -66,7 +67,7 @@ class Hud extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      right: 6,
+                      left: 10,
                       child: Icon(
                         Icons.flash_on,
                         color: Colors.white,

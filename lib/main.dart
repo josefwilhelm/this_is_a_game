@@ -25,6 +25,7 @@ class BonfireExamplesApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => StatController(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => const Home(),
           '/game': (context) => Game(),

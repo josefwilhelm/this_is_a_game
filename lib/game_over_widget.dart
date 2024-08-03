@@ -42,6 +42,7 @@ class GameOverWidget extends StatelessWidget {
           const SizedBox(height: 20),
           StartButton(
               onPressed: () {
+                stats.reset();
                 Navigator.pushNamed(context, '/game');
               },
               text: 'RESTART')
