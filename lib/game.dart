@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:this_is_a_game/components/player/player.dart';
+import 'package:this_is_a_game/constants.dart';
 import 'package:this_is_a_game/hud.dart';
 
 class Game extends StatelessWidget {
@@ -9,7 +10,6 @@ class Game extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const tileSize = 16.0;
     return Scaffold(
       body: Column(
         children: [
